@@ -1,0 +1,4 @@
+---
+
+hba_ssh_known_hosts: ssh_known_hosts
+hba_shosts_equiv: shosts.equiv
