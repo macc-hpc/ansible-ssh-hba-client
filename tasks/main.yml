@@ -5,7 +5,6 @@
     path: /etc/ssh/ssh_config
     regexp: '^HostbasedAuthentication'
     line: 'HostbasedAuthentication yes'
-  notify: restart ssh
   tags: hba
 
 - name: enable key signing
@@ -13,19 +12,16 @@
     path: /etc/ssh/ssh_config
     regexp: '^EnableSSHKeysign'
     line: 'EnableSSHKeysign yes'
-  notify: restart ssh
   tags: hba
 
 - name: copy ssh_known_hosts
   copy:
     src: "{{hba_ssh_known_hosts}}"
     dest: /etc/ssh/ssh_known_hosts
-  notify: restart ssh
   tags: hba
 
 - name: copy shosts.equiv
   copy:
     src: "{{hba_shosts_equiv}}"
     dest: /etc/ssh/shosts.equiv
-  notify: restart ssh
   tags: hba
